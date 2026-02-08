@@ -68,11 +68,9 @@ This research follows a practical data analytics methodology:
 ## **6. Implementation Modules**
 
 ### **Module 1 – Data Understanding**
-
 The first stage studies available cyber datasets such as attack logs and vulnerability records. Data cleaning techniques are applied to remove missing and duplicate values.
 
 ### **Module 2 – Analytical Processing**
-
 After structuring the data, analysis is performed to count attacks and compare severities using Python Pandas library.
 
 ### **Module 3 – Visualization Layer**
@@ -82,7 +80,6 @@ After structuring the data, analysis is performed to count attacks and compare s
 - **Maps for location view**
 
 ### **Module 4 – User Interface Concept**
-
 A simple dashboard layout is designed for filtering and viewing results dynamically.
 
 ---
