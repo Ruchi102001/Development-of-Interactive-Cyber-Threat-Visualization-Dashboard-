@@ -1,6 +1,6 @@
 # **Model Research Document**
 
-## **Project Title: AI-Driven Cyber Threat Analytics and Visualization System**
+## **Project Title: Development of Interactive Cyber Threat Visualization Dashboard**
 
 ---
 
