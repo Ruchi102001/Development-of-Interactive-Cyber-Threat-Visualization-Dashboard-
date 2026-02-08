@@ -48,12 +48,12 @@ Jupyter Notebook is an **interactive coding environment** mainly used for **Pyth
   ```bash
   jupyter notebook
 
-🔹 Variables & Data Types
+## Variables & Data Types
 
 Variables are containers used to store data in a program.
 They help in storing, modifying, and retrieving values easily.
 
-🔹 Purpose of Variables
+## Purpose of Variables
 
 To store data for later use
 
