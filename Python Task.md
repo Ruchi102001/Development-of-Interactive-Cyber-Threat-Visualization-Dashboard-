@@ -7,11 +7,10 @@ Act as a Python instructor.
 Explain what Python is, its main features, and why it is widely used. Provide a simple example with explanation and output. Keep the language easy and beginner-friendly.
 
 # What is Python?
-
 Python is a high-level, interpreted, and general-purpose programming language.
 It is designed to be simple, readable, and easy to learn.
 
-Python was created by Guido Van Rossum in 1991.
+***Python was created by Guido Van Rossum in 1991.
 
 Python is used for:
 
