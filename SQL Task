@@ -1,1 +1,173 @@
+1. Introduction to SQL
 
+SQL (Structured Query Language) is a standard language used to communicate with relational databases. It allows users to:
+
+Create and structure data
+
+Insert and modify records
+
+Retrieve meaningful information
+
+Maintain security and performance
+
+Although different database systems exist (MySQL, PostgreSQL, SQLite, SQL Server), the core SQL syntax remains largely the same.
+
+2. Creating Structured Data – CREATE TABLE, PRIMARY KEY, INSERT
+
+To store data in a structured way, we must first define a table schema and then insert records.
+
+Code Example
+import sqlite3
+
+connection = sqlite3.connect(':memory:')
+cursor = connection.cursor()
+
+cursor.execute('''
+CREATE TABLE students (
+    student_id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL,
+    major TEXT
+)
+''')
+
+cursor.execute("INSERT INTO students (name, major) VALUES ('Alice', 'Computer Science')")
+cursor.execute("INSERT INTO students (name, major) VALUES ('Bob', 'Mathematics')")
+
+connection.commit()
+
+cursor.execute("SELECT * FROM students")
+print(cursor.fetchall())
+
+connection.close()
+
+Why These Statements Are Required
+
+CREATE TABLE – Defines the structure (schema) of data before storing anything
+
+PRIMARY KEY – Ensures each record is unique and identifiable
+
+INSERT – Adds actual data into the table
+
+3. Retrieving Data – SELECT, WHERE, DISTINCT, ORDER BY, LIMIT
+
+These clauses help extract only the required information from large datasets.
+
+Example
+SELECT name, gpa FROM students;
+
+SELECT * FROM students WHERE major = 'Computer Science';
+
+SELECT DISTINCT major FROM students;
+
+SELECT * FROM students ORDER BY gpa DESC;
+
+SELECT * FROM students ORDER BY gpa DESC LIMIT 3;
+
+Importance
+
+SELECT – Chooses specific columns
+
+WHERE – Filters records
+
+DISTINCT – Removes duplicates
+
+ORDER BY – Sorts results
+
+LIMIT – Controls output size
+
+4. Modifying Data – UPDATE & DELETE
+UPDATE students SET major = 'Data Science' WHERE name = 'Alice';
+
+DELETE FROM students WHERE name = 'Bob';
+
+Caution
+
+Without WHERE, all rows can be updated or deleted
+
+Always verify with SELECT before executing changes
+
+Changes are often irreversible without backup
+
+5. Aggregation – COUNT, SUM, AVG, MIN, MAX, GROUP BY, HAVING
+SELECT COUNT(*), AVG(amount) FROM sales;
+
+SELECT product_category, SUM(amount)
+FROM sales GROUP BY product_category;
+
+SELECT product_category, SUM(amount)
+FROM sales GROUP BY product_category
+HAVING SUM(amount) > 500;
+
+Use
+
+Business reports
+
+Data analysis
+
+Performance comparison
+
+Trend identification
+
+6. SQL Joins
+Types of Joins
+
+INNER JOIN – Only matching records
+
+LEFT JOIN – All left + matches
+
+RIGHT JOIN – All right + matches
+
+FULL OUTER JOIN – Everything
+
+CROSS JOIN – All combinations
+
+SELF JOIN – Table joined with itself
+
+SELECT name, order_id
+FROM customers
+INNER JOIN orders
+ON customers.id = orders.cust_id;
+
+7. Advanced Concepts – INDEX, VIEW, TRANSACTION
+INDEX – Performance Optimization
+CREATE INDEX idx_user_email ON users(email);
+
+VIEW – Security & Simplicity
+CREATE VIEW public_user_balances AS
+SELECT name, balance FROM users;
+
+TRANSACTION – Data Consistency
+BEGIN TRANSACTION;
+
+UPDATE users SET balance = balance - 30 WHERE name = 'Alice';
+UPDATE users SET balance = balance + 30 WHERE name = 'Bob';
+
+COMMIT;
+
+8. Learning Outcome
+
+Through this project I learned:
+
+How relational databases store structured data
+
+Writing efficient SQL queries
+
+Data filtering and analysis
+
+Importance of constraints and transactions
+
+Real-world use of Joins and Views
+
+9. Conclusion
+
+SQL is essential for managing and analyzing structured data in almost every software system. This project demonstrates practical understanding of:
+
+Database creation
+
+Data manipulation
+
+Query optimization
+
+Secure and reliable transactions
+
+This knowledge can be applied to real-world domains such as e-commerce, banking, education, and analytics.
